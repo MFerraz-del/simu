@@ -1,0 +1,334 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body e temas */
+body {
+  background-color: #f5f5f5;
+  color: #222;
+  min-height: 100vh;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+#toggleDarkMode {
+  background: none;
+  border: 2px solid #555;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+#toggleDarkMode:hover {
+  background-color: #ddd;
+  border-color: #333;
+}
+
+body.dark-mode #toggleDarkMode:hover {
+  background-color: #333;
+  border-color: #eee;
+  color: #eee;
+}
+
+/* Main layout */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Form Section */
+#form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+#form-section input[type="text"],
+#form-section input[type="number"],
+#form-section input[type="date"],
+#form-section select {
+  flex: 1 1 140px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+#form-section input[type="text"]:focus,
+#form-section input[type="number"]:focus,
+#form-section input[type="date"]:focus,
+#form-section select:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+#form-section button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 0 0 120px;
+}
+
+#form-section button:hover {
+  background-color: #388e3c;
+}
+
+/* Resumo */
+#resumo {
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+}
+
+/* Seção filtros */
+#filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: #fafafa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  font-size: 1rem;
+  color: #333;
+}
+
+#filtros label {
+  margin-left: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#filtros select,
+#filtros input[type="date"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  min-width: 140px;
+}
+
+#filtros select:focus,
+#filtros input[type="date"]:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px #4caf50;
+  outline: none;
+}
+
+#filtros button {
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+#filtros button:hover {
+  background-color: #0d47a1;
+}
+
+body.dark-mode #filtros {
+  background-color: #222;
+  color: #eee;
+  box-shadow: 0 2px 6px rgb(255 255 255 / 0.15);
+}
+
+body.dark-mode #filtros select,
+body.dark-mode #filtros input[type="date"] {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode #filtros select:focus,
+body.dark-mode #filtros input[type="date"]:focus {
+  border-color: #81c784;
+  box-shadow: 0 0 5px #81c784;
+}
+
+body.dark-mode #filtros button {
+  background-color: #1565c0;
+}
+
+body.dark-mode #filtros button:hover {
+  background-color: #0b3d91;
+}
+
+/* Responsividade para filtros */
+@media (max-width: 600px) {
+  #filtros {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #filtros label {
+    margin-left: 0;
+  }
+
+  #filtros select,
+  #filtros input[type="date"],
+  #filtros button {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+
+/* Lista de transações */
+#transacoes ul {
+  list-style: none;
+}
+
+.transacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  transition: background-color 0.3s;
+}
+
+.transacao.entrada {
+  background-color: #e8f5e9; /* verde claro */
+  color: #2e7d32;
+}
+
+.transacao.saida {
+  background-color: #ffebee; /* vermelho claro */
+  color: #c62828;
+}
+
+body.dark-mode .transacao.entrada {
+  background-color: #1b351b;
+  color: #81c784;
+}
+
+body.dark-mode .transacao.saida {
+  background-color: #4a1f1f;
+  color: #ef9a9a;
+}
+
+.transacao span {
+  font-size: 1rem;
+}
+
+.transacao button.remover {
+  background: none;
+  border: none;
+  color: #888;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.transacao button.remover:hover {
+  color: #c62828;
+}
+
+body.dark-mode .transacao button.remover:hover {
+  color: #ff8a80;
+}
+
+/* Seção gráfico */
+#grafico {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+  #form-section {
+    flex-direction: column;
+  }
+  #form-section button {
+    width: 100%;
+  }
+  #filtros {
+    flex-direction: column;
+  }
+  #filtros button {
+    width: 100%;
+  }
+}
+
+.botoes-exportacao button {
+  background-color: #4caf50; /* verde */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin-right: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.botoes-exportacao button:last-child {
+  margin-right: 0;
+}
+
+.botoes-exportacao button:hover {
+  background-color: #388e3c; /* verde mais escuro */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.24);
+}
+
+.botoes-exportacao button:active {
+  background-color: #2e7d32;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .botoes-exportacao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .botoes-exportacao button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
