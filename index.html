@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador de Finanças</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Simulador de Finanças</h1>
+    <button id="toggleDarkMode">🌙 Modo Escuro</button>
+  </header>
+
+  <main>
+    <section id="form-section">
+      <input type="text" id="descricao" placeholder="Descrição" />
+
+      <select id="tipo">
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+      </select>
+
+      <select id="categoria">
+        <!-- Será preenchido via JS -->
+      </select>
+
+      <input type="number" id="valor" placeholder="Valor (ex: 100.50)" />
+      <input type="date" id="dataTransacao" />
+
+      <button id="adicionar">Adicionar</button>
+    </section>
+
+    <section id="resumo">
+      <h2>Resumo</h2>
+      <p><strong>Saldo:</strong> R$ <span id="saldo">0.00</span></p>
+    </section>
+
+    <section id="filtros">
+      <h2>Filtros</h2>
+      <select id="filtroTipo">
+        <option value="todos">Todos</option>
+        <option value="entrada">Entradas</option>
+        <option value="saida">Saídas</option>
+      </select>
+
+        <select id="filtroCategoria">
+        <option value="todos">Todas Categorias</option>
+        <!-- Será preenchido via JS -->
+      </select>
+
+      <label for="dataInicio">De:</label>
+      <input type="date" id="dataInicio" />
+
+      <label for="dataFim">Até:</label>
+      <input type="date" id="dataFim" />
+
+      <button id="aplicarFiltro">Aplicar Filtro</button>
+      <button id="limparFiltro">Limpar Filtros</button>
+    </section>
+
+    <section id="grafico">
+      <h2>Gráfico de Gastos</h2>
+      <canvas id="graficoFinancas" width="400" height="400"></canvas>
+    </section>
+
+    <section id="transacoes">
+      <h2>Transações</h2>
+      <ul id="lista-transacoes"></ul>
+    </section>
+
+    <div class="botoes-exportacao" style="margin-top: 15px;">
+  <button id="exportCsv">Exportar CSV</button>
+  <button id="exportPdf">Exportar PDF</button>
+  <button id="exportImg">Exportar Gráfico</button>
+</div>
+
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
