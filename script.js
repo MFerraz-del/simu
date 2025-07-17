@@ -13,7 +13,6 @@ const btnLimparFiltro = document.getElementById("limparFiltro");
 const btnDarkMode = document.getElementById("toggleDarkMode");
 
 const inputDataTransacao = document.getElementById("dataTransacao");
-const saudacao = document.getElementById("saudacao");
 
 const categoriasEntrada = ["Mesada", "Salário", "Outros"];
 const categoriasSaida = ["Uber", "Alimentação", "Transporte", "Lazer", "Outros"];
@@ -22,6 +21,13 @@ let transacoes = [];
 let grafico;
 const ctx = document.getElementById('graficoFinancas').getContext('2d');
 
+window.addEventListener("DOMContentLoaded", () => {
+  carregarTransacoes();
+  atualizarCategorias();
+  atualizarFiltroCategorias();
+  carregarTema();
+  atualizarInterface();
+});
 
 
 // Atualiza categorias do select de categoria conforme tipo escolhido
